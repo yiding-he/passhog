@@ -1,0 +1,18 @@
+.recent-pass-lib-list .file-item.selected {
+    -fx-background-color: #ddd;
+}
+
+.recent-pass-lib-list .file-item {
+    -fx-padding: 10;
+}
+
+.recent-pass-lib-list .file-item:hover {
+    -fx-background-color: #eee;
+}
+
+.recent-pass-lib-list .file-name {
+    -fx-font-weight: bold;
+}
+.recent-pass-lib-list .folder-path {
+    -fx-text-fill: #999999;
+}
