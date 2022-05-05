@@ -6,6 +6,7 @@ public class AppEvents {
   }
 
   public static void onPasswordLibLoaded() {
+    PasshogApplication.updatePrimaryStageTitle();
     PasshogApplication.loadScene(PasshogApplication.primaryStage, "main.fxml");
   }
 }

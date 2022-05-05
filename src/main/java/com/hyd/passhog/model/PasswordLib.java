@@ -12,9 +12,19 @@ public final class PasswordLib {
 
   private String passwordValidator;
 
+  private transient String savePath;
+
   private transient String mainPassword;
 
   private transient String contentEncrypted;
+
+  public String getSavePath() {
+    return savePath;
+  }
+
+  public void setSavePath(String savePath) {
+    this.savePath = savePath;
+  }
 
   ////////////////////////// instance
 
