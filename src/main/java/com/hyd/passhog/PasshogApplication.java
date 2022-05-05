@@ -11,13 +11,24 @@ public class PasshogApplication extends Application {
 
   public static Stage primaryStage;
 
+  public static void loadScene(Stage stage, String fxml) {
+    try {
+      FXMLLoader fxmlLoader = new FXMLLoader(PasshogApplication.class.getResource(fxml));
+      Scene scene = new Scene(fxmlLoader.load());
+      stage.setScene(scene);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
   @Override
-  public void start(Stage stage) throws IOException {
+  public void start(Stage stage) {
     primaryStage = stage;
-    FXMLLoader fxmlLoader = new FXMLLoader(PasshogApplication.class.getResource("main.fxml"));
-    Scene scene = new Scene(fxmlLoader.load(), 800, 600);
     stage.setTitle("Passhog 密码管理");
-    stage.setScene(scene);
+    stage.setWidth(800);
+    stage.setHeight(600);
+
+    loadScene(stage, "welcome.fxml");
     stage.show();
   }
 

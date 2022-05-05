@@ -1,4 +1,4 @@
-package com.hyd.passhog.builders;
+package com.hyd.passhog.ui.builders;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

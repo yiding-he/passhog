@@ -1,4 +1,4 @@
-package com.hyd.passhog.builders;
+package com.hyd.passhog.ui.builders;
 
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;

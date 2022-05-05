@@ -1,4 +1,4 @@
-package com.hyd.passhog.components;
+package com.hyd.passhog.ui.components;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;

@@ -1,4 +1,4 @@
-package com.hyd.passhog.dialogs;
+package com.hyd.passhog.ui.dialogs;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
