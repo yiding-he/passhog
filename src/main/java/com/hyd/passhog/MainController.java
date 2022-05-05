@@ -1,6 +1,7 @@
 package com.hyd.passhog;
 
 import com.hyd.passhog.components.RecentPassLibList;
+import com.hyd.passhog.dialogs.CreateLibDialog;
 
 import java.io.File;
 import java.util.Arrays;
@@ -28,5 +29,9 @@ public class MainController {
       new File("mvnw.cmd").getAbsoluteFile(),
       new File("README.md").getAbsoluteFile()
     ));
+  }
+
+  public void onCreateLibClicked() {
+    new CreateLibDialog(PasshogApplication.primaryStage).showAndWait();
   }
 }

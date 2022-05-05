@@ -3,6 +3,7 @@ module com.hyd.passhog {
     requires javafx.fxml;
 
     requires org.kordamp.ikonli.javafx;
+    requires org.apache.commons.lang3;
 
     opens com.hyd.passhog to javafx.fxml;
     opens com.hyd.passhog.components to javafx.fxml;

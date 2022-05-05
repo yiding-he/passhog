@@ -1,3 +1,7 @@
+:root {
+    --hyperlink-color: #2779b2;
+}
+
 .recent-pass-lib-list .file-item.selected {
     -fx-background-color: #ddd;
 }
@@ -13,6 +17,25 @@
 .recent-pass-lib-list .file-name {
     -fx-font-weight: bold;
 }
+
 .recent-pass-lib-list .folder-path {
     -fx-text-fill: #999999;
+}
+
+.hyperlink {
+    -fx-border-color: transparent;
+}
+
+.hyperlink, .hyperlink * {
+    -fx-text-fill: #2779b2;
+    -fx-icon-color: #2779b2;
+}
+
+.hyperlink:hover, .hyperlink:hover * {
+    -fx-text-fill: #4197d3;
+    -fx-icon-color: #4197d3;
+}
+
+.hyperlink:visited, .hyperlink:hover {
+    -fx-underline: false;
 }

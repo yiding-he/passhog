@@ -2,10 +2,10 @@
 
 <?import com.hyd.passhog.components.RecentPassLibList?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 <BorderPane xmlns:fx="http://javafx.com/fxml"
             stylesheets="@default.css"
             fx:controller="com.hyd.passhog.MainController">
@@ -15,12 +15,21 @@
             <padding>
                 <Insets top="50" left="100" right="100" bottom="100"/>
             </padding>
-            <Button text="打开密码库..."/>
+            <HBox alignment="BASELINE_LEFT" spacing="15">
+                <Hyperlink text="打开密码库...">
+                    <graphic><FontIcon iconLiteral="fas-book"/></graphic>
+                </Hyperlink>
+                <Hyperlink text="新建密码库" onAction="#onCreateLibClicked">
+                    <graphic><FontIcon iconLiteral="fas-book-reader"/></graphic>
+                </Hyperlink>
+            </HBox>
             <Pane prefHeight="5"/>
             <HBox alignment="BASELINE_LEFT">
                 <Label text="最近打开的文件:"/>
                 <Pane HBox.hgrow="ALWAYS"/>
-                <Hyperlink text="清空"/>
+                <Hyperlink text="清空">
+                    <graphic><FontIcon iconLiteral="fas-trash-alt"/></graphic>
+                </Hyperlink>
             </HBox>
             <RecentPassLibList VBox.vgrow="ALWAYS" fx:id="lstRecentFiles" styleClass="recent-pass-lib-list"/>
         </VBox>
