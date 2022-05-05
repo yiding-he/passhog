@@ -1,12 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <BorderPane xmlns:fx="http://javafx.com/fxml"
             stylesheets="@default.css"
             fx:controller="com.hyd.passhog.ui.controllers.MainController">
-
+    <padding>
+        <Insets topRightBottomLeft="5"/>
+    </padding>
     <center>
-        <Label text="main"/>
+        <HBox spacing="10">
+            <VBox prefWidth="200" spacing="5">
+                <TitledPane text="机房列表" collapsible="false" prefHeight="200">
+                    <ListView fx:id="lvDataCenters"/>
+                </TitledPane>
+                <TitledPane text="节点列表" collapsible="false" VBox.vgrow="ALWAYS" maxHeight="Infinity">
+                    <ListView/>
+                </TitledPane>
+            </VBox>
+            <VBox HBox.hgrow="ALWAYS" spacing="5">
+                <TitledPane text="节点账户" collapsible="false" prefHeight="200">
+                    <ListView/>
+                </TitledPane>
+                <TitledPane text="节点服务" collapsible="false" VBox.vgrow="ALWAYS" maxHeight="Infinity">
+                    <ListView/>
+                </TitledPane>
+            </VBox>
+        </HBox>
     </center>
 </BorderPane>
+

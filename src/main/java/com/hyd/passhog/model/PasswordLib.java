@@ -6,11 +6,13 @@ import com.alibaba.fastjson2.JSONObject;
 import com.hyd.passhog.AppEvents;
 import com.hyd.passhog.util.AESUtils;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public final class PasswordLib {
 
   private static final String ENC_TEST_STRING = "abcdefghijklmnopqrstuvwxyz";
-
-  private String passwordValidator;
 
   private transient String savePath;
 
@@ -60,7 +62,31 @@ public final class PasswordLib {
   private PasswordLib() {
   }
 
+  private PasswordLib parseJson(JSONObject jsonObject) {
+    this.passwordValidator = jsonObject.getString("passwordValidator");
+    this.contentEncrypted = jsonObject.getString("content");
+    return this;
+  }
+
   //////////////////////////
+
+  private final List<DataCenter> dataCenters = new ArrayList<>();
+
+  public void addDataCenter(DataCenter dataCenter) {
+    this.dataCenters.add(dataCenter);
+  }
+
+  public void removeDataCenter(DataCenter dataCenter) {
+    this.dataCenters.remove(dataCenter);
+  }
+
+  public List<DataCenter> getDataCenters() {
+    return Collections.unmodifiableList(this.dataCenters);
+  }
+
+  //////////////////////////
+
+  private String passwordValidator;
 
   public String getPasswordValidator() {
     return passwordValidator;
@@ -75,12 +101,6 @@ public final class PasswordLib {
 
     return this.passwordValidator.equals(
       AESUtils.encode256(ENC_TEST_STRING, mainPassword));
-  }
-
-  private PasswordLib parseJson(JSONObject jsonObject) {
-    this.passwordValidator = jsonObject.getString("passwordValidator");
-    this.contentEncrypted = jsonObject.getString("content");
-    return this;
   }
 
 }
