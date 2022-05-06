@@ -1,33 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.hyd.passhog.ui.components.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <BorderPane xmlns:fx="http://javafx.com/fxml"
             stylesheets="@default.css"
             fx:controller="com.hyd.passhog.ui.controllers.MainController">
-    <padding>
-        <Insets topRightBottomLeft="5"/>
-    </padding>
+
+    <top>
+        <MenuBar>
+            <Menu text="文件">
+                <MenuItem text="打开..."/>
+                <MenuItem text="保存..."/>
+                <MenuItem text="另存为..."/>
+                <SeparatorMenuItem/>
+                <MenuItem text="退出"/>
+            </Menu>
+        </MenuBar>
+    </top>
+
     <center>
-        <HBox spacing="10">
-            <VBox prefWidth="200" spacing="5">
-                <TitledPane text="机房列表" collapsible="false" prefHeight="200">
-                    <ListView fx:id="lvDataCenters"/>
-                </TitledPane>
-                <TitledPane text="节点列表" collapsible="false" VBox.vgrow="ALWAYS" maxHeight="Infinity">
-                    <ListView/>
-                </TitledPane>
-            </VBox>
-            <VBox HBox.hgrow="ALWAYS" spacing="5">
-                <TitledPane text="节点账户" collapsible="false" prefHeight="200">
-                    <ListView/>
-                </TitledPane>
-                <TitledPane text="节点服务" collapsible="false" VBox.vgrow="ALWAYS" maxHeight="Infinity">
-                    <ListView/>
-                </TitledPane>
-            </VBox>
-        </HBox>
+        <TabPane tabClosingPolicy="UNAVAILABLE">
+            <Tab text="登录账户管理">
+                <VBox>
+                    <padding>
+                        <Insets topRightBottomLeft="5"/>
+                    </padding>
+                    <SplitPane VBox.vgrow="ALWAYS" dividerPositions="0.3">
+                        <FolderTreeView fx:id="tvFolders"/>
+                        <VBox spacing="5">
+                            <padding>
+                                <Insets topRightBottomLeft="10"/>
+                            </padding>
+                            <GridPane hgap="10">
+                                <Label GridPane.rowIndex="0" GridPane.columnIndex="0" text="名称："/>
+                                <Label GridPane.rowIndex="0" GridPane.columnIndex="1" fx:id="lblFolderName"/>
+                                <Label GridPane.rowIndex="1" GridPane.columnIndex="0" text="地址："/>
+                                <Hyperlink GridPane.rowIndex="1" GridPane.columnIndex="1" fx:id="lnkAddress"/>
+                            </GridPane>
+                            <Pane prefHeight="1"/>
+                            <Label text="账号列表" style="-fx-text-fill: #888888"/>
+                            <ScrollPane VBox.vgrow="ALWAYS" fitToWidth="true" fitToHeight="true">
+                                <AccountsFlowPane hgap="20" vgap="20">
+                                    <padding>
+                                        <Insets topRightBottomLeft="10"/>
+                                    </padding>
+                                    <AccountCard />
+                                    <AccountCard />
+                                    <AccountCard />
+                                    <AccountCard />
+                                    <AccountCard />
+                                    <AccountCard />
+                                    <AccountCard />
+                                    <AccountCard />
+                                    <AccountCard />
+                                    <AccountCard />
+                                    <AccountCard />
+                                    <AccountCard />
+                                    <AccountCard />
+                                    <AccountCard />
+                                    <AccountCard />
+                                    <AccountCard />
+                                    <AccountCard />
+                                    <AccountCard />
+                                    <AccountCard />
+                                    <AccountCard />
+                                    <AccountCard />
+                                    <AccountCard />
+                                    <AccountCard />
+                                    <AccountCard />
+                                    <AccountCard />
+                                </AccountsFlowPane>
+                            </ScrollPane>
+                        </VBox>
+                    </SplitPane>
+                </VBox>
+            </Tab>
+            <Tab text="服务管理">
+
+            </Tab>
+        </TabPane>
     </center>
 </BorderPane>
 

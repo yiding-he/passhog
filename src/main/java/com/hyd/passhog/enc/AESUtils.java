@@ -1,4 +1,4 @@
-package com.hyd.passhog.util;
+package com.hyd.passhog.enc;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;

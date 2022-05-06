@@ -1,6 +1,6 @@
 package com.hyd.passhog;
 
-import com.hyd.passhog.model.PasswordLib;
+import com.hyd.passhog.lib.PasswordLib;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

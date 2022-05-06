@@ -1,14 +1,10 @@
-package com.hyd.passhog.model;
+package com.hyd.passhog.lib;
 
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONB;
 import com.alibaba.fastjson2.JSONObject;
 import com.hyd.passhog.AppEvents;
-import com.hyd.passhog.util.AESUtils;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import com.hyd.passhog.enc.AESUtils;
 
 public final class PasswordLib {
 
@@ -60,6 +56,7 @@ public final class PasswordLib {
   }
 
   private PasswordLib() {
+    this.rootFolder.setName("我的账户");
   }
 
   private PasswordLib parseJson(JSONObject jsonObject) {
@@ -68,20 +65,25 @@ public final class PasswordLib {
     return this;
   }
 
+  @SuppressWarnings("unchecked")
+  public byte[] toBsonBytes() {
+    JSONObject content = new JSONObject();
+    content.put("rootFolder", this.rootFolder);
+    this.contentEncrypted = AESUtils.encode256(content.toJSONString(), this.mainPassword);
+
+    JSONObject jsonObject = new JSONObject();
+    jsonObject.put("passwordValidator", this.passwordValidator);
+    jsonObject.put("content", this.contentEncrypted);
+
+    return JSONB.toBytes(jsonObject);
+  }
+
   //////////////////////////
 
-  private final List<DataCenter> dataCenters = new ArrayList<>();
+  private Folder rootFolder = new Folder();
 
-  public void addDataCenter(DataCenter dataCenter) {
-    this.dataCenters.add(dataCenter);
-  }
-
-  public void removeDataCenter(DataCenter dataCenter) {
-    this.dataCenters.remove(dataCenter);
-  }
-
-  public List<DataCenter> getDataCenters() {
-    return Collections.unmodifiableList(this.dataCenters);
+  public Folder getRootFolder() {
+    return rootFolder;
   }
 
   //////////////////////////
@@ -99,8 +101,19 @@ public final class PasswordLib {
       return true;
     }
 
-    return this.passwordValidator.equals(
+    var isValid = this.passwordValidator.equals(
       AESUtils.encode256(ENC_TEST_STRING, mainPassword));
+
+    if (isValid) {
+      this.mainPassword = mainPassword;
+      decodeContent();
+    }
+    return isValid;
+  }
+
+  private void decodeContent() {
+    JSONObject contentObject = JSON.parseObject(AESUtils.decode256(this.contentEncrypted, this.mainPassword));
+    this.rootFolder = contentObject.getObject("rootFolder", Folder.class);
   }
 
 }

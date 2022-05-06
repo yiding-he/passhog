@@ -1,4 +1,4 @@
-package com.hyd.passhog.model;
+package com.hyd.passhog.lib;
 
 import lombok.Data;
 

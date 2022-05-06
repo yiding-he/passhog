@@ -1,6 +1,6 @@
 package com.hyd.passhog.ui.dialogs;
 
-import com.hyd.passhog.model.PasswordLib;
+import com.hyd.passhog.lib.PasswordLib;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.PasswordField;

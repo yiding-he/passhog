@@ -1,5 +1,7 @@
 package com.hyd.passhog.ui.components;
 
+import com.hyd.passhog.file.PasswordLibFile;
+import com.hyd.passhog.ui.dialogs.AlertDialog;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -30,13 +32,17 @@ public class RecentPassLibList extends ScrollPane {
       setOnMouseClicked(event -> {
         selectFileItem(this);
         if (event.getClickCount() == 2) {
-
+          tryOpenFile(file);
         }
       });
     }
+  }
 
-    public File getValue() {
-      return value;
+  private void tryOpenFile(File file) {
+    if (!file.exists()) {
+      AlertDialog.error("File does not exist");
+    } else {
+      PasswordLibFile.openFile(file.getAbsolutePath());
     }
   }
 

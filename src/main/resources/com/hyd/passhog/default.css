@@ -24,6 +24,7 @@
 
 .hyperlink {
     -fx-border-color: transparent;
+    -fx-padding: 0;
 }
 
 .hyperlink, .hyperlink * {
@@ -38,4 +39,14 @@
 
 .hyperlink:visited, .hyperlink:hover {
     -fx-underline: false;
+}
+
+.account-card {
+    -fx-pref-width: 200;
+    -fx-pref-height: 100;
+    -fx-background-color: #fff;
+    -fx-stroke: #ccc;
+    -fx-stroke-width: 1;
+    -fx-border-radius: 3;
+    -fx-effect: dropshadow(gaussian, #aaa, 5, 0.2, 0, 1);
 }
