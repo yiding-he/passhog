@@ -23,7 +23,7 @@ public class FolderTreeView extends TreeView<Folder> {
         super.updateItem(item, empty);
         if (!empty && item != null) {
           setText(item.getName());
-          var icon = new FontIcon(FontAwesomeRegular.FOLDER_OPEN);
+          var icon = new FontIcon(FontAwesomeRegular.FOLDER);
           icon.setIconColor(Color.web("#85c1ec"));
           setGraphic(icon);
         } else {

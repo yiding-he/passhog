@@ -1,7 +1,10 @@
 package com.hyd.passhog.ui.controllers;
 
+import com.hyd.passhog.lib.Account;
 import com.hyd.passhog.lib.Folder;
 import com.hyd.passhog.lib.PasswordLib;
+import com.hyd.passhog.ui.components.AccountCard;
+import com.hyd.passhog.ui.components.AccountsFlowPane;
 import com.hyd.passhog.ui.components.FolderTreeView;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
@@ -13,6 +16,8 @@ public class MainController {
   public Label lblFolderName;
 
   public Hyperlink lnkAddress;
+
+  public AccountsFlowPane accountsFlowPane;
 
   public void initialize() {
     var rootFolder = PasswordLib.getInstance().getRootFolder();
@@ -28,6 +33,12 @@ public class MainController {
     tvFolders.getSelectionModel().selectedItemProperty().addListener(
       (o, d, newValue) -> loadFolder(newValue.getValue())
     );
+
+    for (int i = 0; i < 100; i++) {
+      Account account = new Account();
+      account.setUsername("admin");
+      accountsFlowPane.getChildren().add(new AccountCard(account));
+    }
   }
 
   private void loadFolder(Folder folder) {

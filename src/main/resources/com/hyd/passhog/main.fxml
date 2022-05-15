@@ -42,35 +42,10 @@
                             <Pane prefHeight="1"/>
                             <Label text="账号列表" style="-fx-text-fill: #888888"/>
                             <ScrollPane VBox.vgrow="ALWAYS" fitToWidth="true" fitToHeight="true">
-                                <AccountsFlowPane hgap="20" vgap="20">
+                                <AccountsFlowPane hgap="20" vgap="20" fx:id="accountsFlowPane">
                                     <padding>
                                         <Insets topRightBottomLeft="10"/>
                                     </padding>
-                                    <AccountCard />
-                                    <AccountCard />
-                                    <AccountCard />
-                                    <AccountCard />
-                                    <AccountCard />
-                                    <AccountCard />
-                                    <AccountCard />
-                                    <AccountCard />
-                                    <AccountCard />
-                                    <AccountCard />
-                                    <AccountCard />
-                                    <AccountCard />
-                                    <AccountCard />
-                                    <AccountCard />
-                                    <AccountCard />
-                                    <AccountCard />
-                                    <AccountCard />
-                                    <AccountCard />
-                                    <AccountCard />
-                                    <AccountCard />
-                                    <AccountCard />
-                                    <AccountCard />
-                                    <AccountCard />
-                                    <AccountCard />
-                                    <AccountCard />
                                 </AccountsFlowPane>
                             </ScrollPane>
                         </VBox>
