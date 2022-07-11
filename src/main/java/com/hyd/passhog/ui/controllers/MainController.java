@@ -1,5 +1,6 @@
 package com.hyd.passhog.ui.controllers;
 
+import com.hyd.passhog.AppEvents;
 import com.hyd.passhog.lib.Account;
 import com.hyd.passhog.lib.Folder;
 import com.hyd.passhog.lib.PasswordLib;
@@ -18,6 +19,8 @@ public class MainController {
   public Hyperlink lnkAddress;
 
   public AccountsFlowPane accountsFlowPane;
+
+  public Hyperlink lnkAddAccount;
 
   public void initialize() {
     var rootFolder = PasswordLib.getInstance().getRootFolder();
@@ -49,5 +52,9 @@ public class MainController {
     } else {
       lnkAddress.setVisible(false);
     }
+  }
+
+  public void closeFile() {
+    AppEvents.onPasswordLibUnloaded();
   }
 }

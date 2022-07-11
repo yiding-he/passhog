@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.hyd.passhog.ui.components.*?>
+<?import com.hyd.passhog.ui.components.AccountsFlowPane?>
+<?import com.hyd.passhog.ui.components.FolderTreeView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 <BorderPane xmlns:fx="http://javafx.com/fxml"
             stylesheets="@default.css"
             fx:controller="com.hyd.passhog.ui.controllers.MainController">
@@ -14,6 +16,7 @@
                 <MenuItem text="打开..."/>
                 <MenuItem text="保存..."/>
                 <MenuItem text="另存为..."/>
+                <MenuItem text="关闭" onAction="#closeFile"/>
                 <SeparatorMenuItem/>
                 <MenuItem text="退出"/>
             </Menu>
@@ -48,6 +51,9 @@
                                     </padding>
                                 </AccountsFlowPane>
                             </ScrollPane>
+                            <Hyperlink text="添加账号..." fx:id="lnkAddAccount">
+                                <graphic><FontIcon iconLiteral="far-user"/></graphic>
+                            </Hyperlink>
                         </VBox>
                     </SplitPane>
                 </VBox>

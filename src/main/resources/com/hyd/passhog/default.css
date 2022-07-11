@@ -2,11 +2,20 @@
     --hyperlink-color: #2779b2;
 }
 
+* {
+    -fx-font-family: "Microsoft Yahei", "Arial", sans-serif;
+}
+
+.recent-pass-lib-list {
+    -fx-background-color: #fff;
+}
+
 .recent-pass-lib-list .file-item.selected {
     -fx-background-color: #ddd;
 }
 
 .recent-pass-lib-list .file-item {
+    -fx-background-color: #fff;
     -fx-padding: 10;
 }
 
@@ -45,8 +54,14 @@
     -fx-pref-width: 200;
     -fx-pref-height: 100;
     -fx-background-color: #fff;
+    -fx-background-radius: 3;
     -fx-stroke: #ccc;
     -fx-stroke-width: 1;
     -fx-border-radius: 3;
     -fx-effect: dropshadow(gaussian, #aaa, 5, 0.2, 0, 1);
+}
+
+.account-card:hover {
+    -fx-effect: dropshadow(gaussian, #aaa, 15, 0.2, 0, 2);
+
 }

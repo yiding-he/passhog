@@ -9,4 +9,9 @@ public class AppEvents {
     PasshogApplication.updatePrimaryStageTitle();
     PasshogApplication.loadScene(PasshogApplication.primaryStage, "main.fxml");
   }
+
+  public static void onPasswordLibUnloaded() {
+    PasshogApplication.updatePrimaryStageTitle();
+    PasshogApplication.loadScene(PasshogApplication.primaryStage, "welcome.fxml");
+  }
 }
